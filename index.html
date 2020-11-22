@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<style>
+input {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: LavenderBlush;
+  color: blue;
+}
+
+
+button {
+  width: 100%;
+  background-color: LemonChiffon;
+  color: indigo;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: Khaki;
+}
+
+div {
+  border-radius: 5px;
+  background-color: HoneyDew;
+  padding: 20px;
+}
+</style>
+<script>
+function calculateCompatability() {
+  var Q1 = document.getElementById("Q1").value;
+  var Q2 = document.getElementById("Q2").value;
+  var Q3 = document.getElementById("Q3").value;
+  var Q4 = document.getElementById("Q4").value;
+  var Q5 = document.getElementById("Q5").value;
+  
+  if (Q1 < 1 || Q2 < 1 || Q3 < 1 || Q4 < 1 || Q5 < 1 || Q1 > 5 || Q2 > 5 || Q3 > 5 || Q4 > 5 || Q5 > 5) {
+	alert("Please only input numbers 1 through 5");
+  } else {
+	var comp1 = 5 - Math.abs(Q1 - 5);
+	var comp2 = 5 - Math.abs(Q2 - 5);
+	var comp3 = 5 - Math.abs(Q3 - 4);
+	var comp4 = 5 - Math.abs(Q4 - 1);
+	var comp5 = 5 - Math.abs(Q5 - 4);
+	
+	var total = (comp1 + comp2 + comp3 + comp4 + comp5) * 4;
+	alert("Total Compatability out of 100: You are " + total + "% compatible with me.");
+  }
+  
+}
+</script>
+<body>
+
+<h2>Welcome to Matchmaker</h2>
+
+<p>Instructions: Matchmaker: Find out if you are compatible with me!</p>
+
+<p>Welcome! Type an answer from 1-5 <p>
+<p>1 means that you strongly disagree with the question<p>
+<p>5 means that you strongly agree with the question<p>
+<p>In the end, your score out of 100 (with 100 being a perfect compatibility) will tell you how compatible you are with me. Give it a try!</p>
+
+<br>
+<div>
+<form action="/action_page.php">
+
+  <label for="Q1">Nirvana is the best band in the world.</label><br>
+  <input type="number" id="Q1" min="1" max="5"><br>
+
+  <label for="Q2">The Philippines is the best place to live.</label><br>
+  <input type="number" id="Q2" min="1" max="5"><br>
+
+  <label for="Q3">The 90's is the best time period to travel back to.</label><br>
+  <input type="number" id="Q3" min="1" max="5"><br>
+
+  <label for="Q4">Tennis is the best sport in the world.</label><br>
+  <input type="number" id="Q4" min="1" max="5"><br>
+
+  <label for="Q5">Thanksgiving is my favorite holiday.</label><br>
+  <input type="number" id="Q5" min="1" max="5"><br>
+
+  <br>
+
+</form>
+</div>
+
+<button onclick="calculateCompatability()">Submit</button>
+
+</body>
+</html>
+
